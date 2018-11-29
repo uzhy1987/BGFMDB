@@ -1545,6 +1545,8 @@ static BGDB* BGdb = nil;
                     NSArray* sqlNames = [allName componentsSeparatedByString:@","];
                     
                     for(NSString* sqlName in sqlNames){
+                        if ([sqlName containsString:@"primary key"])
+                            continue;
                         NSString* columnName = [[sqlName componentsSeparatedByString:@" "] firstObject];
                         [tempArrayM addObject:columnName];
                     }

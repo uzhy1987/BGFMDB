@@ -1147,6 +1147,12 @@ void bg_cleanCache(){
 +(BOOL)ifNotExistWillCreateTableWithObject:(id)object ignoredKeys:(NSArray* const)ignoredKeys{
     //检查是否建立了跟对象相对应的数据表
     NSString* tableName = [BGTool getTableNameWithObject:object];
+    NSCache* cache = [NSCache bg_cache];
+    NSString* cacheKey = [NSString stringWithFormat:@"%@_is_exist",tableName];
+    id isExist = [cache objectForKey:cacheKey];
+    if (isExist)
+        return YES;
+    
     //获取"唯一约束"字段名
     NSArray* uniqueKeys = [BGTool executeSelector:bg_uniqueKeysSelector forClass:[object class]];
     //获取“联合主键”字段名
@@ -1161,6 +1167,7 @@ void bg_cleanCache(){
         }
     }];
     
+    [cache setObject:@(isExistTable) forKey:cacheKey];
     return isExistTable;
 }
 

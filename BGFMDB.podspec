@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 #
 
 s.name         = "BGFMDB"
-s.version      = "2.0.12"
+s.version      = "2.0.12.2"
 s.summary      = "完美支持iOS大部分类型数据的存储,同时带有 字典转模型 功能模块."
 
 # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ s.platform     = :ios, "8.0"
 #  Supports git, hg, bzr, svn and HTTP.
 #
 
-s.source       = { :git => 'https://github.com/huangzhibiao/BGFMDB.git', :tag => s.version, :submodules => true }
+s.source       = { :git => 'https://github.com/uzhy1987/BGFMDB.git', :tag => s.version, :submodules => true }
 
 
 # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
